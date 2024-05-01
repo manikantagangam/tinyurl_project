@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiny URL</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Tiny URL Generator</h1>
+    <form action="{{ url_for('index') }}" method="POST">
+      <label for="long_url">Enter Long URL:</label>
+      <input type="text" id="long_url" name="long_url" required />
+      <button type="submit">Get Short URL</button>
+    </form>
+    {% if short_url %}
+    <p>Your Shortened URL:</p>
+    <a href="{{ short_url }}">{{ short_url }}</a>
+    {% endif %}
+  </body>
+</html>
